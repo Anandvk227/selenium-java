@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy 2 packages to &apos;Inclinic_Project/src/test/java&apos;&#x0D;&#x0A;- Original project: &apos;cucumberjava&apos;&#x0D;&#x0A;- Destination element: &apos;Inclinic_Project/src/test/java&apos;&#x0D;&#x0A;- Original elements:&#x0D;&#x0A;     cucumberjava/src/test/java/genericLib&#x0D;&#x0A;     cucumberjava/src/test/java/inVCStepDefination" description="Copy packages" destination="=Inclinic_Project/src\/test\/java=/optional=/true=/=/maven.pomderived=/true=/=/test=/true=/" element1="/src\/test\/java=/test=/true=/=/optional=/true=/=/maven.pomderived=/true=/&lt;genericLib" element2="/src\/test\/java=/test=/true=/=/optional=/true=/=/maven.pomderived=/true=/&lt;inVCStepDefination" flags="589830" fragments="2" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyPackages" stamp="1688974345855" version="1.0"/>
+</session>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="Cucumber" time="3.936" tests="1" skipped="0" failures="1" errors="0">
+<testcase classname="Verifying people module with all possible scenarios" name="Verifying people page Elements" time="1.201">
+<failure/>
+<system-out><![CDATA[
+Given user is in Login Page.................................................undefined
+]]></system-out>
+</testcase>
+</testsuite>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="Cucumber" time="38.374" tests="1" skipped="0" failures="0" errors="0">
+<testcase classname="Verifying people module with all possible scenarios" name="CHeck the Forgot password with Valid OTP" time="38.212">
+<system-out><![CDATA[
+Given user is in Login Page.................................................passed
+When user Click on Forgot Password button...................................passed
+Then Enter Valid email address..............................................passed
+Then Verify OTP Page........................................................passed
+Then Change the Tab to OTP Page.............................................passed
+Then Enter OTP getted Mail..................................................passed
+Then Copy the OTP...........................................................passed
+]]></system-out>
+</testcase>
+</testsuite>

@@ -1,0 +1,249 @@
+Feature: Verifying people module wit all possible scenarios
+
+#@SmokeTest
+#Scenario: Verifying people page UI Elements
+#Given user is in Login Page
+#When user enter <UserName> and <Password>
+#And click on Login button
+#Then user is navigated to dashboard page
+#And user click on people module
+#And user is in people page
+#
+#Examples:
+#|UserName|Password|
+#|sukumar@yopmail.com|Inlink@123|
+#
+#@SmokeTest
+#Scenario: Verifying people page UI Elements
+#Given user is in Login Page
+#When user enter <UserName> and <Password>
+#And click on Login button
+#Then user is navigated to dashboard page
+#And user click on people module
+#And user is in people page
+#And user Verify UI of Individual chat No Image data
+#
+#
+#Examples: 
+#|UserName|Password|
+#|sukumar@yopmail.com|Inlink@123|
+#
+#@SmokeTest
+#Scenario: Verifying people page UI Elements
+#Given user is in Login Page
+#When user enter <UserName> and <Password>
+#And click on Login button
+#Then user is navigated to dashboard page
+#And user click on people module
+#And user is in people page
+#And user Verify UI of Individual chat No Image data
+#And user Verify UI of Group chat No Image data
+#And user Verify UI of BroadCast chat No Image data
+#And User Verify right side of top name is Displaying
+#And user Verify Left side of top menu bar Displaying
+#
+#
+#
+#Examples:
+#|UserName|Password|
+#|sukumar@yopmail.com|Inlink@123|
+#
+#@SmokeTest1
+#Scenario: Verifying people page Add Contact list 
+#Given user is in Login Page
+#When user enter <UserName> and <Password>
+#And click on Login button
+#Then user is navigated to dashboard page
+#And user click on people module
+#And user is in people page
+#And user Verify UI of Individual chat No Image data
+#Then Click on Add new Contact button
+#And Search the person name to Chat
+#Then Click on Add button
+#Then Enter Text message to Select person
+#Then logout the Account
+#When user enter <UserName2> and <Password>
+#And click on Login button
+#And Click on People Module 
+#And Click on Message Recieved Account 
+#And Verify the Text Message
+#Then Enter Text message to Select person
+#Then logout the Account
+#When user enter <UserName> and <Password>
+#And click on Login button
+#And Click on People Module 
+#And Click on Message Recieved Account 
+#And Verify the Text Message
+#Then Enter Text message to Select person
+#Then logout the Account
+#When user enter <UserName2> and <Password>
+#And click on Login button
+#And Click on People Module 
+#And Click on Message Recieved Account 
+#And Verify the Text Message
+#Then Enter Text message to Select person
+#Then logout the Account
+#When user enter <UserName> and <Password>
+#And click on Login button
+#And Click on People Module 
+#And Click on Message Recieved Account 
+#And Verify the Text Message
+#Then Enter Text message to Select person
+#Then logout the Account
+#When user enter <UserName2> and <Password>
+#And click on Login button
+#And Click on People Module 
+#And Click on Message Recieved Account 
+#And Verify the Text Message
+#Then Enter Text message to Select person
+#Then logout the Account
+#When user enter <UserName> and <Password>
+#And click on Login button
+#And Click on People Module 
+#And Click on Message Recieved Account 
+#And Verify the Text Message
+#Then Enter Text message to Select person
+#Then logout the Account
+#When user enter <UserName2> and <Password>
+#And click on Login button
+#And Click on People Module 
+#And Click on Message Recieved Account 
+#And Verify the Text Message
+#Then Enter Text message to Select person
+#Then logout the Account
+#When user enter <UserName> and <Password>
+#And click on Login button
+#And Click on People Module 
+#And Click on Message Recieved Account 
+#And Verify the Text Message
+#Then Enter Text message to Select person
+#Then logout the Account
+#When user enter <UserName2> and <Password>
+#And click on Login button
+#And Click on People Module 
+#And Click on Message Recieved Account 
+#And Verify the Text Message
+#
+#
+#
+#Examples: 
+#|UserName|Password|UserName2|
+#|sukumar@yopmail.com|Inlink@123|nikhil@yopmail.com|
+#
+#@SmokeTest11
+#Scenario: Verifying people page Add Contact list 
+#Given user is in Login Page
+#When user enter <UserName> and <Password>
+#And click on Login button
+#Then user is navigated to dashboard page
+#And user click on people module
+#And user is in people page
+#Then Click on Group Chat Tab
+#Then Click on Add New Group button
+#And Select Network Connection Company to Create Group
+#And Enter text Message to Created Group
+#Then logout the Account
+#When user enter <UserName3> and <Password>
+#And click on Login button
+#And Click on People Module 
+#And Click on Message Recieved Account check
+#And Verify the Text Message
+#
+#Examples: 
+#|UserName|Password|UserName3|
+#|sukumar@yopmail.com|Inlink@123|ajio@yopmail.com|
+#
+#@SmokeTest11
+#Scenario: Verifying people page Add Contact list 
+#Given user is in Login Page
+#When user enter <UserName> and <Password>
+#And click on Login button
+#Then user is navigated to dashboard page
+#And user click on people module
+#And user is in people page
+#Then Click on Group Chat Tab
+#Then Click on Add New Group button
+#And Select Network Connection Company to Create Group
+#And Enter text Message to Created Group
+#Then logout the Account
+#When user enter <UserName3> and <Password>
+#And click on Login button
+#And Click on People Module 
+#And Click on Message Recieved Account check
+#And Verify the Text Message
+#
+#Examples: 
+#|UserName|Password|UserName3|
+#|sukumar@yopmail.com|Inlink@123|ajio@yopmail.com|
+#
+#@SmokeTest11
+#Scenario: Verifying people page Add Contact list 
+#Given user is in Login Page
+#When user enter <UserName> and <Password>
+#And click on Login button
+#Then user is navigated to dashboard page
+#And user click on people module
+#And user is in people page
+#Then Click on Group Chat Tab
+#Then Click on Add New Group button
+#And Select Network Connection Company to Create Group
+#And Enter text Message to Created Group
+#Then logout the Account
+#When user enter <UserName3> and <Password>
+#And click on Login button
+#And Click on People Module 
+#And Click on Message Recieved Account check
+#And Verify the Text Message
+#
+#Examples: 
+#|UserName|Password|UserName3|
+#|sukumar@yopmail.com|Inlink@123|ajio@yopmail.com|
+#
+#@SmokeTest11
+#Scenario: Verifying people page Add Contact list 
+#Given user is in Login Page
+#When user enter <UserName> and <Password>
+#And click on Login button
+#Then user is navigated to dashboard page
+#And user click on people module
+#And user is in people page
+#Then Click on Group Chat Tab
+#Then Click on Add New Group button
+#And Select Network Connection Company to Create Group
+#And Enter text Message to Created Group
+#Then logout the Account
+#When user enter <UserName3> and <Password>
+#And click on Login button
+#And Click on People Module 
+#And Click on Message Recieved Account check
+#And Verify the Text Message
+#
+#Examples: 
+#|UserName|Password|UserName3|
+#|sukumar@yopmail.com|Inlink@123|ajio@yopmail.com|
+
+@SmokeTest11
+Scenario: Verifying people page Add Contact list 
+Given user is in Login Page
+When user enter <UserName> and <Password>
+And click on Login button
+Then user is navigated to dashboard page
+And user click on people module
+And user is in people page
+Then Click on Group Chat Tab
+Then Click on Group to Chat
+And Upload five Images and Send in group
+Then logout the Account
+When user enter <UserName3> and <Password>
+And click on Login button
+And Click on People Module 
+And Click on Message Recieved Account check
+And Verify the Image Message
+And Upload five Images and Send in group
+Then logout the Account
+
+Examples: 
+|UserName|Password|UserName3|
+|sukumar@yopmail.com|Inlink@123|ajio@yopmail.com|
+
+

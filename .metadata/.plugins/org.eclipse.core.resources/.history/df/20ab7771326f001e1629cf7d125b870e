@@ -1,0 +1,19 @@
+package Step_Definition;
+
+import org.junit.runner.RunWith;
+import io.cucumber.core.cli.Main;
+import io.cucumber.junit.Cucumber;
+import io.cucumber.junit.CucumberOptions;
+
+@SuppressWarnings("unused")
+@RunWith(Cucumber.class)
+@CucumberOptions(features="src/test/resources/Feature Files",glue={"Step_Definition"},
+monochrome = true,
+plugin={"pretty","junit:target/JUnitReports/report.xml",
+"html:target/HtmlReports/report.html",
+"json:target/JsonReports/report.json"},
+tags="@SmokeTest"
+		)
+public class TestRunner {
+
+}

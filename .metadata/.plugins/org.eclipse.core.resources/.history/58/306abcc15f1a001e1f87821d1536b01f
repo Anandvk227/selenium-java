@@ -1,0 +1,1170 @@
+Feature: Veryfing inLink end to end flow
+
+  @TestingTest @TestGruop1.1
+  Scenario Outline: Verifying create post with all scenarios
+    Given user is on Login page
+    When user enters <UserName> and <Password>
+    And hits on Login
+    Then I should be redirected to the dashboard page
+    When user Click on Create Post
+    And Enters Text and Uploading picture
+    And hits on Post
+    Then verify the Toastify
+    When user Click on Create Post
+    And Enters only Text
+    And hits on Post
+    Then verify the Toastify
+    When user Click on Create Post
+    And Uploading only picture
+    And hits on Post
+    Then verify the Toastify
+   # When user Click on Create Post
+    #And Enters Text and Uploading Video
+   # And hits on Post
+   # Then verify the Toastify
+    When user Click on Create Post
+    And Enters Text and Uploading YouTube Url
+    And hits on Post
+    Then verify the Toastify
+    When user Click on Create Post
+    And Enters Text and Uploading five images in one time
+    And hits on Post
+    Then verify the Toastify
+    When user Click on Create Post
+    And Enters Text and Uploading more than five images in one time
+    Then verify the Error Toastify
+    And hits on Post
+    Then verify the Toastify
+    When user Click on Create Post
+    And Enters Text and Uploading image in archieve status
+    And hits on Post
+    Then verify the Archieve Toastify
+
+    Examples: 
+      | UserName          | Password   |
+      | ajio@yopmail.com | Inlink@123 |
+
+  @TestingTest @TestGruop1.1
+  Scenario Outline: Verifying the newsfeed for Updating and Deleting the Post.
+    Given User is on login page
+    When user enters <UserName> and <Password>
+    And hits on Login
+    Then user is navigated to home page
+    And Edit the post
+    Then verify update message
+    And Delete the post
+    Then verify delete message
+
+    Examples: 
+      | UserName          | Password   |
+      | ajio@yopmail.com | Inlink@123 |
+
+  @TestingTest @TestGruop1.1
+  Scenario Outline: Verifying configuration Module Create department with details
+    Given User is on login page
+    When user enters <UserName> and <Password>
+    And hits on Login
+    Then user is navigated to home page
+    And user Clicks on Configurationmodule
+    When user clicks on create new department button
+    And create a department with entering valid data
+    Then verifying the Department Created Successfully toast message
+    And create devision with entering valid data
+    And create designation with entering valid data
+    Then verifying the Designation Created Successfully toast message
+
+    Examples: 
+      | UserName          | Password   |
+      | sukumar@yopmail.com | Inlink@123 |
+
+  @TestingTest @TestGruop1.1
+  Scenario Outline: Create a Three employees in Company A
+    Given User is on login page
+    When user enters <UserName> and <Password>
+    And hits on Login
+    Then user is navigated to home page
+    And Clicking on Employees module
+    And Clicking on create new Employee button
+    And Enterig <FullName> and <Email> and <peronalEmail>
+    And Enter <PhoneNumber> and <EmpId>
+    And Select Department Designation and devision
+    And Selecting country as India
+    And Selecting state as Telangana
+    And selecting city as Hyderabad
+    And Clicking on add button
+    Then verify the user created successfully toast message
+
+    Examples: 
+      | FullName | Email               | peronalEmail          | PhoneNumber | EmpId | UserName          | Password   |
+      | viyaan   | ajio11@yopmail.com | dddd1@yopmail.com |  9013276222 |  2011 | sukumar@yopmail.com | Inlink@123 |
+      | aravin   | ajio21@yopmail.com | ass1@yopmail.com |  9553265222 |  2012 | sukumar@yopmail.com | Inlink@123 |
+      | sonya    | ajio31@yopmail.com  | ssa1@yopmail.com |  9032556222 |  2013 | sukumar@yopmail.com | Inlink@123 |
+
+  @TestingTest @TestGruop1.1
+  Scenario Outline: Verifying news feed post with the created employee
+    Given User is on login page
+    When user enters <UserName> and <Password>
+    And hits on Login
+    Then user is navigated to home page
+    When user Click on Create Post
+    And Enters Text and Uploading picture
+    And hits on Post
+    Then verify the Toastify
+    When user Click on Create Post
+    And Enters only Text
+    And hits on Post
+    Then verify the Toastify
+    And hits on logout
+    And login as user2
+    When user2 enters <UserName2>
+    And user opens new tab to copy the temporary password <UserName2>
+    When user enters <UserName2> and <Password2>
+    And hits on Login
+    Then user is navigated to home page
+    And Verify the post
+
+    Examples: 
+      | UserName          | Password   | UserName2           | Password2  | newPassword | confPassword |
+      | sukumar@yopmail.com | Inlink@123 | ajio11@yopmail.com | Inlink@123 | Inlink@123  | Inlink@123   |
+      | sukumar@yopmail.com | Inlink@123 | ajio21@yopmail.com | Inlink@123 | Inlink@123  | Inlink@123   |
+      | sukumar@yopmail.com | Inlink@123 | ajio31@yopmail.com  | Inlink@123 | Inlink@123  | Inlink@123   |
+
+  @TestingTest @TestGruop1.1
+  Scenario Outline: Make One Employee as a Admin of the company
+    Given User is on login page
+    When user enters <UserName> and <Password>
+    And hits on Login
+    Then user is navigated to home page
+    And user Clicks on EmployeeModule Active Employee
+    And user Search the active employee <EmpName>
+    And user opens the employee profile
+    And user click on change role Admin
+    And clicks on Grant Admin
+    And verify <EmpName> is an Admin
+    And user Search the active employee <EmpName>
+    Then verifying the Admin tag
+
+    Examples: 
+      | UserName          | Password   | EmpName |
+      | sukumar@yopmail.com | Inlink@123 | aravin  |
+
+  @TestingTest @TestGruop1.11
+  Scenario Outline: Send connection request to Company B. logout and Login as company B and accept connection request.
+    Given User is on login page
+    When user enters <UserName> and <Password>
+    And hits on Login
+    Then user is navigated to home page
+    And user Clicks on network module
+    And user is in network page
+    And user Searching Company Name <NetworkcompanyName>
+    And open the searched company
+    And clicking on connect company
+    Then user is navigated to connection request page
+    And selecting relation dropDown
+    And select the ckeckbox and click on connect button
+    Then Verifying the network connection text and clicking on OK
+    And hits on logout
+    And login as user2
+    When User is on login page
+    And user enters <NetworkcompanyNameMail> and <Password>
+    And hits on Login
+    And user Clicks on network module
+    And user is in network page
+    And clicks on pending request
+    And clicks on Approve request
+    And chaning relation type as partner
+    And Assigning relation manager <RelationManagerName>
+    And Approve the connection request
+    Then Verify the approved connection request text and click on OK
+
+    Examples: 
+      | UserName          | Password   | NetworkcompanyName | RelationManagerName | NetworkcompanyNameMail |
+      | sukumar@yopmail.com | Inlink@123 | Nse Company        | Nelesh              | ash@yopmail.com        |
+
+  @TestingTest @TestGruop1.1
+  Scenario Outline: Assigning relation Manager from super Admin account
+    Given User is on login page
+    When user enters <UserName> and <Password>
+    And hits on Login
+    And login as Super Admin of <CompanyName>
+    Then user is navigated to home page
+    And user Clicks on network module
+    And user is in network page
+    And user Searching Company Name <NetworkcompanyName>
+    And user open the searched company
+    And user click on relation managers
+    And user click on edit relatio mangers
+    And user search the name <relationManagername> to assign relation Manager
+    And user Click on the add button
+    And click on Update button
+    Then verify Connection updated Successfully! toast message
+
+    Examples: 
+      | UserName          | Password   | NetworkcompanyName | NetworkcompanyNameMail | relationManagername | CompanyName       |
+      | sukumar@yopmail.com | Inlink@123 | Nse Company        | ash@yopmail.com        | aravin              | Prodogy Solutions |
+
+  @TestingTest @TestGruop3
+  Scenario Outline: Verifying the company profile in Recommanded Industry feature.
+    Given User is on login page
+    When user enters <UserName> and <Password>
+    And hits on Login
+    Then user is navigated to home page
+    And user Clicks on network module
+    And user is in network page
+    And search the company <NetworkcompanyName> in Recommandded industry search field
+    And open the company <NetworkcompanyName>
+    And scroll down
+    Then Verify the Social Media Links Text
+
+    Examples: 
+      | UserName          | Password   | NetworkcompanyName     | filter                 |
+      | Alakh@yopmail.com | Inlink@123 | Recomms Tech Solutions | Information Technology |
+
+  @TestingTest @TestGruop3
+  Scenario Outline: Verify Network module follow the company and accept follow request
+    Given User is on login page
+    When user enters <UserName> and <Password>
+    And hits on Login
+    Then user is navigated to home page
+    And user Clicks on network module
+    And user is in network page
+    And user Searching Company Name <NetworkcompanyName>
+    And open the searched company
+    And clicking on Follow company
+    And hits on logout
+    And login as user2
+    When User is on login page
+    And user enters <NetworkcompanyNameMail> and <Password>
+    And hits on Login
+    And user Clicks on network module
+    And user is in network page
+    And clicks on Follow request
+    And User search <companyA>
+    And Clicking on follow and Confirm Follow
+
+    Examples: 
+      | UserName          | Password   | NetworkcompanyName     | RelationManagerName | NetworkcompanyNameMail | companyA          |
+      | Alakh@yopmail.com | Inlink@123 | Recomms Tech Solutions | aravin              | Renuak@yopmail.com     | Prodogy Solutions |
+
+  @TestingTest @TestGruop3
+  Scenario Outline: News Feed Book Mark & unBookmark the post by the Super admin of connected company
+    Given User is on login page
+    And Login as the superAdmin of Comapny A
+    And user enters <UserName> and <Password>
+    And hits on Login
+    When user Click on Create Post
+    And Uploading only picture
+    And hits on Post
+    Then verify the Toastify
+    And hits on logout
+    And login as Relation Manager of company B
+    When user enters <UserName2> and <Password2>
+    And hits on Login
+    Then user is navigated to home page
+    And Verify the post
+    And Clicking on Three dots and selecting bookmark
+    And Clicking on Explore bookmark
+    And Clicking on Remove Bookmark
+
+    Examples: 
+      | UserName          | Password   | UserName2       | Password2  | newPassword | confPassword |
+      | Alakh@yopmail.com | Inlink@123 | ash@yopmail.com | Inlink@123 | Inlink@123  | Inlink@123   |
+
+  @TestingTest @TestGruop3
+  Scenario Outline: Verifying NewsFeed Search Field and Bookmark Search field with invalid data
+    Given user is on Login page
+    When user enters <UserName> and <Password>
+    And hits on Login
+    Then I should be redirected to the dashboard page
+    And Verify the post
+    And user search the news feed with <inValid> inValid Data
+    Then user verify No result was found Text
+    And Refresh the page
+    And Clicking on Three dots and selecting bookmark
+    And Clicking on Explore bookmark
+    And Search the bookMark with <BookMarkInValid> inValid data
+    Then user verify No bookmark was found Text
+    And user again click on news feed
+    Then user verify the News feed Text
+
+    Examples: 
+      | UserName          | Password   | inValid  | BookMarkInValid |
+      | Alakh@yopmail.com | Inlink@123 | kdsjfhgk | kejdhkjeh       |
+
+  @later
+  Scenario Outline: Verifying NewsFeed Filters All Post - Self Post - partner Post and Following Post
+    Given user is on Login page
+    When user enters <UserName> and <Password>
+    And hits on Login
+    Then I should be redirected to the dashboard page
+    And Verify the post
+    And user Clicks on Three Dots
+    And user Click on Filter
+    And User deselect all Filter
+    And user select the filter as Self Posts
+    And Click on Apply button
+    Then user verify the <companyA> self Comopany name
+    And Refresh the page
+    And user Clicks on Three Dots
+    And user Click on Filter
+    And User deselect all Filter
+    And user select the filter as Partner
+    And Click on Apply button
+    Then user verify the <NetworkcompanyName> self Comopany name
+    And Refresh the page
+    And user Clicks on Three Dots
+    And user Click on Filter
+    And User deselect all Filter
+    And user select the filter as Following
+    And Click on Apply button
+    Then user verify the <FollowNetwork> self Comopany name
+
+    Examples: 
+      | UserName          | Password   | inValid  | BookMarkInValid | companyA          | NetworkcompanyName  | FollowNetwork   |
+      | Alakh@yopmail.com | Inlink@123 | kdsjfhgk | kejdhkjeh       | Prodogy Solutions | Aravind Private Ltd | Marvels Pvt Ltd |
+
+  @TestingTest @TestGruop4
+  Scenario Outline: Verifying NewsFeed - Share Post with all visible Platforms
+    Given user is on Login page
+    When user enters <UserName> and <Password>
+    And hits on Login
+    Then I should be redirected to the dashboard page
+    And Verify the post
+    And share the post by copying Link
+    And Click on Watsapp <Watsapp> icon and verify the Url
+    And Refresh the page
+    And share the post by copying Link
+    And Click on Facebook <Facebook> icon and verify the Url
+    And Refresh the page
+    And share the post by copying Link
+    And Click on Twitter <Twitter> icon and verify the Url
+    And Refresh the page
+    And share the post by copying Link
+    And Click on Instagram <Instagram> icon and verify the Url
+    And Refresh the page
+    And share the post by copying Link
+    And Click on LinkedIn <LinkedIn> icon and verify the Url
+    And Refresh the page
+    And share the post by copying Link
+    And Click on Telegram <Telegram> icon and verify the Url
+
+    Examples: 
+      | UserName          | Password   | Watsapp | Facebook | Twitter | Instagram | LinkedIn | Telegram |
+      | Alakh@yopmail.com | Inlink@123 | Watsapp | Facebook | Twitter | Instagram | LinkedIn | Telegram |
+
+  @TestingTest @TestGruop4
+  Scenario Outline: Verifying Networks - Search Field with inValid Text
+    Given user is on Login page
+    When user enters <UserName> and <Password>
+    And hits on Login
+    Then I should be redirected to the dashboard page
+    And user Clicks on network module
+    And user is in network page
+    And search the company inValid <inValidCompany> in Recommandded industry search field
+    Then Verify the No search results found Text
+
+    Examples: 
+      | UserName          | Password   | inValidCompany |
+      | Alakh@yopmail.com | Inlink@123 | ksjdfkgj       |
+
+  @TestingTest @TestGruop4
+  Scenario Outline: Verifying Employees - Invite feature with valid and inValid mail
+    Given user is on Login page
+    When user enters <UserName> and <Password>
+    And hits on Login
+    Then I should be redirected to the dashboard page
+    And Clicking on Employees module
+    And user is Click on Invite button
+    And user click on invite Link Copy button
+    And user entering the <inValid> Mail id and click on add button
+    Then user verify the Enter valid mail Toast message
+    And user entering the <Valid> Mail id and click on add button
+    And user click on send button
+    Then user Verify Invitation send successfully Toast Message
+
+    Examples: 
+      | UserName          | Password   | inValid     | Valid            |
+      | Alakh@yopmail.com | Inlink@123 | yopmail.com | jack@yopmail.com |
+
+  @TestingTest @TestGruop4
+  Scenario Outline: Verifying Employees - Search field with invalid Employee name
+    Given user is on Login page
+    When user enters <UserName> and <Password>
+    And hits on Login
+    Then I should be redirected to the dashboard page
+    And Clicking on Employees module
+    And user Search the active employee <inValidEmpName>
+    And user verify No search results found Text
+
+    Examples: 
+      | UserName          | Password   | inValidEmpName |
+      | Alakh@yopmail.com | Inlink@123 | .,s,dfm        |
+
+  @TestingTest @TestGruop4
+  Scenario Outline: Reporting abuse the post of Company A by the Super admin of connected company
+    Given User is on login page
+    And Login as the superAdmin of Comapny A
+    And user enters <UserName> and <Password>
+    And hits on Login
+    When user Click on Create Post
+    And Enters Text and Uploading Video
+    And hits on Post
+    Then verify the Toastify
+    And hits on logout
+    And login as Relation Manager of company B
+    When user enters <UserName2> and <Password2>
+    And hits on Login
+    Then user is navigated to home page
+    And Verify the post
+    And Clicking on Three dots and select report abuse
+    And Reporting the post as Suspicious spam MisInformation
+    Then Verifying Reported Successfully Toast
+
+    Examples: 
+      | UserName          | Password   | UserName2       | Password2  | newPassword | confPassword |
+      | Alakh@yopmail.com | Inlink@123 | ash@yopmail.com | Inlink@123 | Inlink@123  | Inlink@123   |
+
+  @TestingTest @TestGruop4
+  Scenario Outline: Verify Network module follow the company, block and unblock the company
+    Given User is on login page
+    And login as Super Admin of <BlockcompanyName>
+    When user enters <BlockcompanyNameMail> and <Password>
+    And hits on Login
+    Then user is navigated to home page
+    And user Clicks on network module
+    And user is in network page
+    And user is in network page
+    And user Searching Company A Name <companyA>
+    And open the searched company A
+    And clicking on Follow company A
+    And hits on logout
+    When User is on login page
+    And login as Super Admin of <companyA>
+    And user enters <UserName> and <Password>
+    And hits on Login
+    And user Clicks on network module
+    And user is in network page
+    And clicks on Follow request
+    And user Searching Company B Name <BlockcompanyName>
+    And User blocks the company B
+    And clicks on Block List
+    And user Searching Company B Name <BlockcompanyName>
+    And User Unblocks the company B
+
+    Examples: 
+      | UserName          | Password   | BlockcompanyName | BlockcompanyNameMail | companyA          |
+      | Alakh@yopmail.com | Inlink@123 | Larsen           | larsen@yopmail.com   | Prodogy Solutions |
+
+  @TestingTest @SanityTest @TestGruop5
+  Scenario Outline: Verifying New Feed Likes Comments with count, Both admin and other company employee and share the post
+    Given User is on login page
+    And Login as the superAdmin of Comapny A
+    And user enters <UserName> and <Password>
+    And hits on Login
+    When user Click on Create Post
+    And Enters Text and Uploading picture
+    And hits on Post
+    Then verify the Toastify
+    And user Like the self post
+    And user Comment and reply the Comment on self post
+    And share the post by copying Link and verify the copied successfully toast
+    And verify the Like count of Company A
+    And verify the Comment count of Company A
+    And hits on logout
+    And login as Admin of Company B
+    When user enters <UserName2> and <Password2>
+    And hits on Login
+    Then user is navigated to home page
+    And Verify the post
+    And user Like the Comapny B post
+    And user Comment and reply the Comment on Company B post
+    And share the post by copying Link and verify the copied successfully toast
+    And verify the Like count of Company B
+    And verify the Comment count of Company B
+    And hits on logout
+
+    Examples: 
+      | UserName          | Password   | UserName2       | Password2  |
+      | Alakh@yopmail.com | Inlink@123 | ash@yopmail.com | Inlink@123 |
+
+  @TestingTest @TestGruop5
+  Scenario Outline: Creating a certificate with all details in certification Program module
+    Given User is on login page
+    And login as Super Admin of <companyA>
+    When user enters <UserName> and <Password>
+    And hits on Login
+    Then user is navigated to home page
+    When user Clicks on Certification module
+    Then Verify the Exams Text
+    When user Clicks on Marketing system
+    And user clicks on new (create marketing system)
+    And User Enters the EnterEcronym into the fields
+    And user clicks on publish (marketing system)
+    Then verify Acronym created and published successfully Toast
+    When user Clicks on Question Bank
+    And user clicks on new (create Question Bank)
+    And User Enters the question
+    And User Enters the default mark
+    And select answer type as single choice
+    And user adding Four answers and selecting one answer
+    And user selecting marketing system whisch is newly created
+    And And user clicks on publish (Question Bank)
+    Then verify Question created and published successfully Toast
+    When user Clicks on Templates
+    And user clicks on new (Templates)
+    And user selecting the template
+    And user entering certificate name and certificate program name
+    And user entering details in remaining Fields like PresentedTo BenificiaryName and Description
+    And user uploading logo
+    And user uploading sign
+    And user uploading stamp
+    And user clicks on publish (Templates)
+    Then verify Published Successfully Toast
+    When user Clicks on Certification
+    And user clicks on new (Certification)
+    And user entering certification program name and description
+    And user select the marketing system and number of question
+    And user entering Default pass percentage and Default reApply time
+    And User set the exam  duration and question type
+    And user select and preview the templates
+    And user clicks on publish (Certification)
+    Then verify Published Successfully Toast
+
+    Examples: 
+      | UserName          | Password   | companyA          |
+      | Alakh@yopmail.com | Inlink@123 | Prodogy Solutions |
+
+  @TestingTest @TestGruop5
+  Scenario Outline: Verifying news Feed see More feature by Scrolling the posts
+    Given User is on login page
+    And login as Super Admin of <companyA>
+    When user enters <UserName> and <Password>
+    And hits on Login
+    Then user is navigated to home page
+    And Scroll down the feed untill see more is displaying
+    And Click on see more
+
+    Examples: 
+      | UserName           | Password   | companyA          |
+      | Laxman@yopmail.com | Inlink@123 | Prodogy Solutions |
+
+  @TestingTest @TestGruop5
+  Scenario Outline: Verifying	 Resources module end to end flow (Creting category, Creating sub category, Creating content and veryfing the created resource by the connected partner)
+    Given User is on login page
+    When user enters <UserName> and <Password>
+    And hits on Login
+    And login as Super Admin of <companyA>
+    Then user is navigated to home page
+    And user Clicks on Resource module
+    And user is in Resource page
+    And user clicks on create new category
+    And user clicks on upload image icon and uploading a image in category
+    And user entering categoryName <categoryName> into the field
+    And user entering catDescription <catDescription> into the field
+    And user enable the category button and click on save button
+    Then user verifying the Category Created Successfully toast message
+    And user Clicks on Resource module
+    And user search the created categoryName <categoryName> into the field
+    And user verify the categoryName <categoryName> and open the catogory
+    And user inside the category
+    And user clicks on create new subCategory button
+    And user clicks on upload image icon and uploading a image in sub category
+    And user entering subcategoryName <subcategoryName> into the field
+    And enters catDescription <catDescription> into the field
+    And user enable the Subcategory and click on save button
+    Then user verifying the Sub Category Created Successfully toast message
+    And user click on Create New content
+    And user uploading a banner image
+    And user entering ContentTitle <ContentTitle> into the field
+    And user entering contentDescription <catDescription> into the field
+    And user entering categoryName1 <categoryName1> into the field
+    And user uploading a image
+    And user uploading a youtube url
+    And user uploading a UploadVideo
+    And user uploading a UploadVideo
+    And user uploading a document
+    And user clicks on save content
+    Then user verify the Section Saved Successfully toast message
+    And user clicks on Publish content
+    Then user verify Content created successfully toast message
+    And hits on logout
+    And login as Admin of Company B
+    When user enters <UserName2> and <Password2>
+    And hits on Login
+    Then user is navigated to home page
+    And user Clicks on network module
+    And user is in network page
+    And user Searching Company Name <companyA>
+    And open the searched company
+    And scroll and click on resources
+    And user search the created categoryName <categoryName> into the field
+    And user verify the categoryName <categoryName> and open the catogory
+    And user inside the category
+    And hits on logout
+
+    Examples: 
+      | UserName          | Password   | companyA          | categoryName       | subcategoryName        | ContentTitle        | categoryName1      | companyA          | UserName2       | Password2  | catDescription                                                                                                  |
+      | Alakh@yopmail.com | Inlink@123 | Prodogy Solutions | Software Solutions | Functionality Testing. | Selenium with java. | Content Documents. | Prodogy Solutions | ash@yopmail.com | Inlink@123 | The process of evaluating and verifying  that a software product or application does what it is supposed to do. |
+
+  @TestingTest @TestGruop5
+  Scenario Outline: veryfying Resources - My Networks
+    Given User is on login page
+    When user enters <UserName> and <Password>
+    And hits on Login
+    And login as Super Admin of <companyA>
+    Then user is navigated to home page
+    And user Clicks on Resource module
+    And user is in Resource page
+    And user click on Nework Resources
+    And user Searching Network company Name <inValid>
+    Then user verify the No Network Relations found Text
+    And user Searching Network company Name <companyA>
+    And open the searched company
+    And user search the created categoryName <categoryName> into the field
+    And user verify the categoryName <categoryName> and open the catogory
+    And user inside the category
+    And hits on logout
+
+    Examples: 
+      | UserName        | Password   | companyA          | categoryName       | inValid    |
+      | ash@yopmail.com | Inlink@123 | Prodogy Solutions | Software Solutions | ksdhkfdskh |
+
+  @TestingTest @TestGruop5
+  Scenario Outline: veryfying Resources - Filter (All, Enable & Disable) & invalid data in search field
+    Given User is on login page
+    When user enters <UserName> and <Password>
+    And hits on Login
+    And login as Super Admin of <companyA>
+    Then user is navigated to home page
+    And user Clicks on Resource module
+    And user clicks on create new category
+    And user clicks on upload image icon and uploading a image in category
+    And user entering categoryName <categoryName> into the field
+    And user entering catDescription <catDescription> into the field
+    And user disable the category button and click on save button
+    Then user verifying the Category Created Successfully toast message
+    When user click on Filter fade button
+    And select the Enable Filter
+    Then user Verify the enable button on the category
+    When user click on Filter fade button
+    And select the disable Filter
+    Then user Verify the disable button on the category
+    When user click on Filter fade button
+    And select the All Filter
+    And user search the created categoryName <inValid> into the field
+    Then user verifying No search results found Text
+    And user search the created categoryName <categoryName> into the field
+    And user verify the categoryName <categoryName> and open the catogory
+    And user inside the category
+    And hits on logout
+
+    Examples: 
+      | UserName          | Password   | companyA          | categoryName       | inValid    | categoryName       | catDescription         | inValid |
+      | Alakh@yopmail.com | Inlink@123 | Prodogy Solutions | Software Solutions | ksdhkfdskh | Software Solutions | Functionality Testing. | wjkdsgh |
+
+  @TestingTest @TestGruop5
+  Scenario Outline: Verifying configuration Module search Field with invalid data
+    Given User is on login page
+    When user enters <UserName> and <Password>
+    And hits on Login
+    Then user is navigated to home page
+    And user Clicks on Configurationmodule
+    And Search a department with entering <invalid> data
+    Then user verify No search results found Text
+    And user selects the relations feature
+    And Search a department with entering <invalid> data
+    Then user verify No search results found Text
+
+    Examples: 
+      | UserName          | Password   | invalid |
+      | Alakh@yopmail.com | Inlink@123 | sdmjfh  |
+
+  @TestingTest @TestGruop5
+  Scenario Outline: Verifying the create post feature by switching the profile from company profile to employee profile.
+    Given User is on login page
+    When user enters <UserName> and <Password>
+    And hits on Login
+    And user login as Admin of <companyA>
+    Then user is navigated to home page
+    When user Click on Create Post
+    And admin switch the profile company to employee
+    And Entering Text <Text>
+    And Uploading only picture <image>
+    And hits on Post
+    Then verify News Feed Created Successfully Toastify
+
+    Examples: 
+      | UserName            | Password   | companyA          | Text               | image                |
+      | aravin2@yopmail.com | Inlink@123 | Prodogy Solutions | Updating documents | D:\\9417\\Upload\\docs.jpg |
+
+  @TestingTest @TestGruop6
+  Scenario Outline: Verifying the Super Admin account My profile features End to End functionality with valid details
+    Given User is on login page
+    When user enters <UserName> and <Password>
+    And hits on Login
+    And login as Super Admin of <CompanyName>
+    Then user is navigated to home page
+    When user clicks on MyProfile module
+    Then user in in My profile page
+    When user clicks on professional details Edit icon
+    And user clicks on department Department and changes the Department
+    And user clicks on Division dropdown and changes the Division
+    And user clicks on Designation dropdown and changes the Designation
+    And user clicks on approve
+    When user clicks on upload profile picture and uploading <image>
+    Then user verify Profile Image uploaded successfully. Toaster message
+    When user clicks on Edit overview button
+    And enters text into the field <overviewText>
+    And user clicks on save overview button
+    Then user verify the Profile Updated Successfully Toaster message
+    When user clicks on EditPersonalDetails
+    And user entering first name <FirstName> into the field
+    And user entering last name <LastName> into the field
+    And user entering Personal Mail <PersonalMail> into the field
+    And user entering Personal phone number <Personalphone> into the field
+    And user selects a Male Gender Radio button
+    And user entering Date Of Birth <DOB> into the field
+    And user select the Unmarried Radio button
+    And user clicks on bloodGroup dropdown and selects BPositive
+    And user clicks on save Personal Details button
+    Then user verify the Profile Updated Successfully Toaster message
+    When user clicks on Educational Details Edit icon
+    And user entering degree name <degree> into the field
+    And user entering specialization name <specialization> into the field
+    And user entering university name <university> into the field
+    And user clicks on Educational Details Save button
+    Then user verify the Profile Updated Successfully Toaster message
+    When user click on Address Edit icon
+    And user entering Address <Address> into the field
+    And Select the country as India
+    And Selecting state as Telangana
+    And selecting city as Hyderabad
+    And user entering pincode <pincode> into the field
+    And selecting the checkbox for Same as Above
+    And user clicks on Save Address button
+    Then user verify the Profile Updated Successfully Toaster message
+    When user clicks on Social MediaLinks Add icon
+    And selecting social Media Name as <socialMediaNamedd> from the drop down
+    And entering url <url> into the field
+    And user clicks on Social Media Links  Save button
+    Then user verify the Profile Updated Successfully Toaster message
+
+    Examples: 
+      | UserName          | Password   | CompanyName       | image                       | FirstName | LastName   | PersonalMail         | Personalphone | DOB        | degree                   | specialization        | university | Address                       | pincode | socialMediaNamedd | url              | overviewText                                                       |
+      | Alakh@yopmail.com | Inlink@123 | Prodogy Solutions | D:\\9417\\Upload\\rohit-saraf.jpg | Alakh     | superAdmin | Alakhper@yopmail.com |   99011519222 | 02/18/1998 | Bachelors of Engineering | Mechanical Enineering | Vtu        | q3 A3 10th floor Cyber towers |  580001 | Facebook          | www.facebook.com | Possess excellent communication skills and have an eye for detail. |
+
+  @TestingTest @TestGruop6 @Retest
+  Scenario Outline: Verifying the Company profile  all features End to End functionality
+    Given User is on login page
+    When user enters <UserName> and <Password>
+    And hits on Login
+    And login as Super Admin of <CompanyName>
+    Then user is navigated to home page
+    When user clicks on Company Profile module
+    Then user in in company profile page
+    When user uploads banner profile pic <image>
+    And click on save button
+    When user uploads profile pic <profileimage>
+    And click on save button
+    When user clicks on edit official details icon
+    And user enters company name <CompanyName> into the field
+    And user enters Industry Type <IndustryType> into the field
+    And user enters Year of Established <year> into the Text field
+    And user enters website url <website> into the Text field
+    And user clicks on save button
+    Then user verify the Profile Updated Successfully Toaster message
+    When user clicks  on overview details
+    And user entering Description <Description> into the Text field
+    And user enters address <address> into the Text field
+    And select country as <country>
+    And select state as <state>
+    And select city as <city>
+    And user enters pincode <pincode> into the Text field
+    And user enters phone number <phone> into the Text field
+    And user enters domain name <domainName> into the Text field
+    And user enters contactPerson name <contactPerson> into the Text field
+    And user clicks on save button
+    Then verify Company profile updated toaster message
+    When user click on Award Add button
+    And user uploading award image <image>
+    And user enter awardTitle <Description> into the Text field
+    And user clicks on save button
+    Then user verify the Award Updated Successfully Toaster message
+
+    Examples: 
+      | UserName         | Password   | profileimage                | image               | CompanyName       | IndustryType           | website                            | phone       | year       | country | state     | city      | address                       | pincode | domainName  | contactPerson | Description                                                        |
+      | moji@yopmail.com | Inlink@123 | D:\\9417\\Upload\\rohit-saraf.jpg | D:\\9417\\Upload\\car.jpg | Prodogy Solutions | information technology | https://testapp.inlink.pro/profile | 99019911222 | 20/04/2022 | India   | Telangana | Hyderabad | q3 A3 10th floor Cyber towers |  580001 | yopmail.com | Raj           | Possess excellent communication skills and have an eye for detail. |
+
+  @TestingTest @TestGruop6
+  Scenario Outline: collaboration module by creating task and reminder task
+    Given User is on login page
+    When user enters <UserName> and <Password>
+    And hits on Login
+    And login as Super Admin of <CompanyName>
+    Then user is navigated to home page
+    When user clicks on Collaboration module
+    Then user in in Collaboration page
+    And user clicks on create task new button
+    And user search the <AssignTo> username in search Field
+    And user selects the user
+    And user entering <taskTitle>  into the task title text Field
+    And user entering <taskContent> into the task Content text Field
+    And user entering start time <startTime> into the text Field
+    And user entering end time <endTime> into the text Field
+    And user selecting the priority <priority> from the drop down
+    And user click on create task button
+    Then user verify the Task Created Successfully toastify
+    And user close the toastify message
+    When user click on the reminder
+    Then user is in reminder page
+    And user click on reminder New button
+    And user entering Reminder title <taskTitle> into the text Field
+    And user entering Subject about reminder <taskTitle> into the text Field
+    And user entering reminder Time <reminderTime> into the text Field
+    And user click on Reminder save button
+    Then user verify the Reminder Created Successfully toastify
+
+    Examples: 
+      | UserName          | Password   | CompanyName       | AssignTo | taskTitle      | taskContent                             | startTime           | endTime             | priority | reminderTime        |
+      | Alakh@yopmail.com | Inlink@123 | Prodogy Solutions | a        | Review Details | Deatiled description of work discussion | 14/07/2023 02:36 pm | 24/07/2023 02:36 pm | Medium   | 16/07/2023 02:36 pm |
+
+  @TestingTest @TestGruop6
+  Scenario Outline: Verifying the Configurations Module - Create relation feature.
+    Given User is on login page
+    When user enters <UserName> and <Password>
+    And hits on Login
+    Then user is navigated to home page
+    And user Clicks on Configurationmodule
+    And user selects the relations feature
+    And user click on New button
+    And user enters the Relation name as <RelationName> into the text field
+    And user enters the Description as <Description> into the text field
+    And user Click on Create Relation button
+    Then user verify the Relation Created Successfully toast message
+
+    Examples: 
+      | UserName          | Password   | RelationName | Description                                                                               | toast                         |
+      | Alakh@yopmail.com | Inlink@123 | Influencer   | Brands collaborate with influencers to temporarily take over their social media accounts. | Relation Created Successfully |
+
+  @TestingTest @TestGruop6
+  Scenario Outline: Verifying the Setting Module - Change Password feature.
+    Given User is on login page
+    When user enters <UserName> and <Password>
+    And hits on Login
+    Then user is navigated to home page
+    And user Clicks on Setting module
+    And user selects the change password
+    And user enters current password as <Password> into text Field
+    And user enters New password as <NewPassword> into text Field
+    And user enters Confirm password as <NewPassword> into text Field
+    And user Click on Save button
+    Then user verify Password Changed Successfully toast message
+
+    Examples: 
+      | UserName          | Password    | NewPassword |
+      | Alakh@yopmail.com | Inlink@123  | Inlink!1234 |
+      | Alakh@yopmail.com | Inlink!1234 | Inlink@123  |
+
+  @TestingTest @TestGruop6
+  Scenario Outline: Verifying relations count and Profiles
+    Given User is on login page
+    When user enters <UserName> and <Password>
+    And hits on Login
+    Then user is navigated to home page
+    And Clicking on Employees module
+    And user Clicks on EmployeeModule Active Employee
+    And user Search the active employee <EmpName>
+    And user scroll right and click on relation count Link
+    Then user is navigated to Network Connections page
+    And user click on View Profile Link
+    Then user is navigated to <EmpName> relation manager profile page
+    And user click on the comapany name link
+    Then user is navigated to <companyA> company profile page
+    And user is verifying the company name <companyA>
+
+    Examples: 
+      | UserName          | Password   | EmpName | companyA          |
+      | Alakh@yopmail.com | Inlink@123 | aravin  | Prodogy Solutions |
+
+  @TestingTest @RegressionTest @TestGruop7
+  Scenario Outline: Verifying Deal opportunity module - creating and approving the deal
+    Given User is on login page
+    And Login as a superAdmin of <NetworkcompanyName>
+    When user enters <UserName2> and <Password>
+    And hits on Login
+    Then user is navigated to home page
+    And user Clicking on Deal Opportunity module
+    And user click on new Deal button
+    And user search the NetWorkCompany <companyA> into text field
+    And user select the Network company
+    And user entering the company name <companyName> into text field
+    And user entering the Adrress <Adrress> into text field
+    And user entering the department name <department> into text field
+    And user entering the contactName name <contactName> into text field
+    And user entering the contactEmail <contactEmail> into text field
+    And user entering the phone Number <phoneNumber> into text field
+    And user selecting the country as <countryName> from dropdown
+    And user selecting the state as <state> from dropdown
+    And user selecting the city as <city> from dropdown
+    And user search the Acccount manager <EmpName> into search field
+    And user select the account manager <EmpName>
+    And user click on deal opportunity add button
+    And user enter the opportunity <opportunity> into text field
+    And user click on deal opportunity save button
+    And user selects <INR> from the currency dropdown
+    And user enters the value <EnterValue> into text field
+    And user click on save deal button
+    Then veriifying Deal opportunity created pop up
+    And hits on logout
+    And login as user2
+    When user enters <UserName> and <Password>
+    And hits on Login
+    Then user is navigated to home page
+    And user Clicking on Deal Opportunity module
+    And user selects the pending deal feature
+    And user search the company Name <NetworkcompanyName> into search field
+    And user opens the company by clicking on it
+    And user search the deal Company name <companyName> into search field
+    And user click on edit Associate Managers
+    And user search the Associate Manager <AssociateManager>  into the search field
+    And user click on add and Approve button
+    Then user verify the deal approved Text and click on OK
+
+    Examples: 
+      | UserName2         | UserName        | Password   | NetworkcompanyName | companyA    | companyName | Adrress   | department   | contactName | contactEmail    | phoneNumber | countryName | state     | city      | EmpName | opportunity            | INR | EnterValue | AssociateManager |
+      | Alakh@yopmail.com | ash@yopmail.com | Inlink@123 | Prodogy Solutions  | Nse Company | aravin      | Hyderabad | DealdeptName | jay         | jay@yopmail.com |  9109140022 | India       | Telangana | Hyderabad | aravin  | Smart classroom Setups | INR |     256000 | sonya            |
+
+  @TestingTest @RegressionTest @TestGruop7
+  Scenario Outline: Verifying Deal opportunity module - creating and Rejecting the deal
+    Given User is on login page
+    And Login as a superAdmin of <NetworkcompanyName>
+    When user enters <UserName2> and <Password>
+    And hits on Login
+    Then user is navigated to home page
+    And user Clicking on Deal Opportunity module
+    And user click on new Deal button
+    And user search the NetWorkCompany <companyA> into text field
+    And user select the Network company
+    And user entering the company name <companyName> into text field
+    And user entering the Adrress <Adrress> into text field
+    And user entering the department name <department> into text field
+    And user entering the contactName name <contactName> into text field
+    And user entering the contactEmail <contactEmail> into text field
+    And user entering the phone Number <phoneNumber> into text field
+    And user selecting the country as <countryName> from dropdown
+    And user selecting the state as <state> from dropdown
+    And user selecting the city as <city> from dropdown
+    And user search the Acccount manager <EmpName> into search field
+    And user select the account manager <EmpName>
+    And user click on deal opportunity add button
+    And user enter the opportunity <opportunity> into text field
+    And user click on deal opportunity save button
+    And user selects <INR> from the currency dropdown
+    And user enters the value <EnterValue> into text field
+    And user click on save deal button
+    Then veriifying Deal opportunity created pop up
+    And hits on logout
+    And login as user2
+    When user enters <UserName> and <Password>
+    And hits on Login
+    Then user is navigated to home page
+    And user Clicking on Deal Opportunity module
+    And user selects the pending deal feature
+    And user search the company Name <NetworkcompanyName> into search field
+    And user opens the company by clicking on it
+    And user search the deal Company name <companyName> into search field
+    And user click on status and selecting Reject
+    And user entering <NetworkcompanyName> as a Reason for rejection into the text area
+    And user click on Reject
+    Then user verify the Deal Rejected Successfully text message
+
+    Examples: 
+      | UserName2         | UserName        | Password   | NetworkcompanyName | companyA    | companyName | Adrress   | department   | contactName | contactEmail    | phoneNumber | countryName | state     | city      | EmpName | opportunity            | INR | EnterValue | AssociateManager |
+      | Alakh@yopmail.com | ash@yopmail.com | Inlink@123 | Prodogy Solutions  | Nse Company | sonya       | Hyderabad | DealdeptName | jay         | jay@yopmail.com |  9103910022 | India       | Telangana | Hyderabad | aravin  | Smart classroom Setups | INR |     256000 | sonya            |
+
+  @TestingTest @TestGruop8
+  Scenario Outline: Verifying media Kit module with creating folder, Uploading Files and Folder features.
+    Given User is on login page
+    When user enters <UserName> and <Password>
+    And hits on Login
+    And login as Super Admin of <CompanyName>
+    Then user is navigated to home page
+    And user clicks on Media kit module
+    And user is in Media Kit page
+    And user click on New button
+    And user selects the Upload Folder <Folder> feature and user uploads the Folder
+    And user click on Upload
+    And user verify the Folder uploaded successfully text message
+    And user click on New button
+    And user selects the Folder feature
+    And user is in create New Folder Page
+    And user enters folder name <FolderName> into the Text field
+    And user selects folder type as a <folderType>
+    And user click on Create button
+    Then user verify the Folder created successfully text message.
+    And user search the created folder name <FolderName> into the search field.
+    And user clicks and opens the folder
+    And user clicks on Media kit module
+    And user is in Media Kit page
+    And user click on New button
+    And user selects the Upload Files <Files> feature and user uploads the files
+    And user verify the File uploaded successfully text message
+    And user clicks on Media kit module
+
+    Examples: 
+      | UserName          | Password   | FolderName       | folderType | Files                                                 | Folder                                   |
+      | Alakh@yopmail.com | Inlink@123 | Official Updates | Personal   | C:\\Users\\sohel.TESTPEOPLELINKV\\Upload\\skyshot.jpg | C:\\Users\\sohel.TESTPEOPLELINKV\\Upload |
+
+  @TestingTest @TestGruop8
+  Scenario Outline: Verifying media Kit module with creating folder, Uploading Files and Folder into created folder.
+    Given User is on login page
+    When user enters <UserName> and <Password>
+    And hits on Login
+    And login as Super Admin of <CompanyName>
+    Then user is navigated to home page
+    And user clicks on Media kit module
+    And user is in Media Kit page
+    And user click on New button
+    And user selects the Folder feature
+    And user is in create New Folder Page
+    And user enters folder name <FolderName> into the Text field
+    And user selects folder type as public <folderType>
+    And user click on Create button
+    Then user verify the Folder created successfully text message.
+    And user search the created folder name <FolderName> into the search field.
+    And user clicking and opening the folder
+    And user click on New button
+    And user selects the Upload Folder <Folder> feature and user uploads the Folder
+    And user click on Upload
+    And user verify the Folder uploaded successfully text message
+    And user click on New button
+    And user selects the Upload Files <Files> feature and user uploads the files
+    And user verify the File uploaded successfully text message
+
+    Examples: 
+      | UserName          | Password   | FolderName        | folderType | Files                                             | Folder                                   |
+      | Alakh@yopmail.com | Inlink@123 | Marketing Updates | public     | C:\\Users\\sohel.TESTPEOPLELINKV\\Upload\\car.jpg | C:\\Users\\sohel.TESTPEOPLELINKV\\Upload |
+
+  @Media
+  Scenario Outline: Verifying media Kit module - Menu feature functions (Preview, share, Members, Zip, Rename, MoveToTrash )
+    Given User is on login page
+    When user enters <UserName> and <Password>
+    And hits on Login
+    And login as Super Admin of <CompanyName>
+    Then user is navigated to home page
+    And user clicks on Media kit module
+    And user is in Media Kit page
+    And user click on New button
+    And user selects the Upload Files <Files> feature and user uploads the files
+    Then user verify the File uploaded successfully text message
+    And select a uploaded file
+    And Click on Three dots menu option
+    And Click on preview
+    And user is in Preview page
+    And Click on Preview download button
+    And Click on preview back button
+    And Click on Three dots menu option
+    And click on share
+    And user is in share files page
+    And Select My Employees checkbox
+    And selecting the connected network company
+    And user click on Roles dropDown
+    And user select the VIEW option
+    And user click on share button
+    Then verify Files shared successfully toast message
+    And Click on Three dots menu option
+    And user click on Members option
+    Then user is navigated to members page
+    And cancel toast message
+    And user click on close members page
+    And Click on Three dots menu option
+    And user Click on Rename option
+    And user enters the New Name <newname>
+    And user click on Rename button
+    Then user verify  the File/Folder Renamed Successfully toast message
+    And select a uploaded file
+    And Click on Three dots menu option
+    And Click on Zip
+    Then user Verify the File/Folder converted to zip toast message
+    And verifying the <newname>.zip file format
+    And select a uploaded file
+    And Click on Three dots menu option
+    And select Move to Trash option
+    And Click on trash button
+    Then user verify the File/Folder delete in progress text message
+    Then user verify the File/Folder moved to trash test message
+    And cancel toast message
+    And select a uploaded file
+    And Click on Three dots menu option
+    And select Move to Trash option
+    And Click on trash button
+    Then user verify the File/Folder delete in progress text message
+    Then user verify the File/Folder moved to trash test message
+
+    Examples: 
+      | UserName          | Password   | newname | folderType | Files                                                     | Folder                                   |
+      | Alakh@yopmail.com | Inlink@123 | Renamed | public     | C:\\Users\\sohel.TESTPEOPLELINKV\\Upload\\rohit-saraf.jpg | C:\\Users\\sohel.TESTPEOPLELINKV\\Upload |
+
+  @TestingTest @TestGruop8
+  Scenario Outline: Verifying media Kit module - Download files and menu feature (Move to)
+    Given User is on login page
+    When user enters <UserName> and <Password>
+    And hits on Login
+    And login as Super Admin of <CompanyName>
+    Then user is navigated to home page
+    And user clicks on Media kit module
+    And user is in Media Kit page
+    And user click on New button
+    And user selects the Upload Files <Files> feature and user uploads the files
+    Then user verify the File uploaded successfully text message
+    And select a uploaded file
+    And Click on Download option
+    And Click on Three dots menu option
+    And user select the MoveTo option
+    And search the folder name <FolderName> into the search field
+
+    Examples: 
+      | UserName          | Password   | newname | Files                                              | FolderName        | fileName |
+      | Alakh@yopmail.com | Inlink@123 | Renamed | C:\\Users\\sohel.TESTPEOPLELINKV\\Upload\\blue.jpg | Marketing Updates | blue.jpg |
+
+  @Media
+  Scenario Outline: Verifying media Kit module - Trash feature (deleting permanantly and restoring) and Shared Items feature
+    Given User is on login page
+    When user enters <UserName> and <Password>
+    And hits on Login
+    And login as Super Admin of <CompanyName>
+    Then user is navigated to home page
+    And user clicks on Media kit module
+    And user is in Media Kit page
+    And user click on New button
+    And user selects the Upload Files <Files> feature and user uploads the files
+    Then user verify the Files name already exist text message
+    And select keep both files radio button and click on Upload button
+    Then user verify the File uploaded successfully text message
+    And select a uploaded file
+    And Click on Three dots menu option
+    And select Move to Trash option
+    And Click on trash button
+    Then user verify the File/Folder delete in progress text message
+    Then user verify the File/Folder moved to trash test message
+    And user click on trash
+    And user select the file
+    And click on Delete and Confirm Delete
+    And user verify the File/Folder Permanently Deleted text message
+    And user select the file
+    And user click on Restore
+    And user verify the File/Folder Restored text message
+    And hits on logout
+    When user enters <UserName2> and <Password>
+    And hits on Login
+    Then user is navigated to home page
+    And user clicks on Media kit module
+    And user is in Media Kit page
+    And user click on shared Item feature
+    And hits on logout
+
+    Examples: 
+      | UserName          | Password   | newname | Files                                              | FolderName        | fileName | UserName2       |
+      | Alakh@yopmail.com | Inlink@123 | Renamed | C:\\Users\\sohel.TESTPEOPLELINKV\\Upload\\blue.jpg | Marketing Updates | blue.jpg | ash@yopmail.com |
+
+ 
